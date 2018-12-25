@@ -1,4 +1,14 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const time = 100;
+const phrase = 'Welcome'.split('');
+const tag = document.getElementById('apresentacao');
 
-// Write your JavaScript code.
+function loadApresentacao(n) {
+    setTimeout(function () {
+        if (n < phrase.length) {
+            tag.innerHTML += phrase[n];
+            loadApresentacao(++n);
+        }
+    }, time);
+}
+
+window.open = loadApresentacao(0);
