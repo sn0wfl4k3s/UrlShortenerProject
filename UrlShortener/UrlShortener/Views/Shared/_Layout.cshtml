@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - UrlShortener</title>
+    <title>@ViewData["Title"] - Url Shortener</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -25,27 +25,27 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a class="navbar-brand" href="#">Url Shortener</a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="~/"> Home </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="~/Home/About"> About </a>
+                    <a class="nav-link" href="~/Home/About">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="~/Home/Contact"> Contact </a>
+                    <a class="nav-link" href="~/Home/Contact">Contact</a>
                 </li>
             </ul>
         </div>
     </nav>
 
 
-    <div class="container body-content ">
+    <div class="container body-content text-white card bg-dark">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - UrlShortener</p>
-        </footer>
     </div>
+
+    <footer class="card-footer fixed-bottom bg-dark text-white">
+        <p>&copy; 2018 - Url Shortener</p>
+    </footer>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
