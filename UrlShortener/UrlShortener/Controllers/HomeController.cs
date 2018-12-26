@@ -3,37 +3,25 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc; 
 using UrlShortener.Models;
 
 namespace UrlShortener.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index() => View();
+        public IActionResult Index()   => View();
+        public IActionResult About()   => View();
+        public IActionResult Contact() => View();
 
+         
         [HttpPost]
         public IActionResult Cadastrar (string url)
         {
             ViewData["url"] = url;
-            return RedirectToAction("Result");
+            return View("Result");
         }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-            return View();
-        }
-
-        public IActionResult Result() => View();
-
-
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
