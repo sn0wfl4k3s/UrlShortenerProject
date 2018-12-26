@@ -7,12 +7,14 @@
 
 <hr style="background-color:dimgrey" />
 
-<form>
+<form method="post" asp-controller="Home" asp-action="Cadastrar">
     <label for="basic-url"> Type your URL: </label>
     <div class="input-group mb-3" style="width:77%">
-        <input type="text" class="form-control" placeholder="https://YourWebsite.com" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <input type="text" class="form-control" placeholder="https://YourWebsite.com" 
+               aria-label="Recipient's username" aria-describedby="button-addon2"
+               name="url">
         <div class="input-group-append">
-            <button class="btn btn-primary" type="button" id="button-addon2">
+            <button class="btn btn-primary" id="button-addon2">
                 Confirm
             </button>
         </div>
