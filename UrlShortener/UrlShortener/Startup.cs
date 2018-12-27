@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UrlShortener.Context;
+using UrlShortener.Repository.Url.Request;
 
 namespace UrlShortener
 {
@@ -33,7 +30,13 @@ namespace UrlShortener
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<AppDbContext>(o => o.UseInMemoryDatabase("URLdatabase"));
+            services.AddMediatR();
+
+            services.AddScoped<InsertUrlRequest>();
+            services.AddScoped<SearchUrlLongRequest>();
+
+            services.AddDbContext<AppDbContext>
+                (op => op.UseSqlite("Data Source=App.db"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
