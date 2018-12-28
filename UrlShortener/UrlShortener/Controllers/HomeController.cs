@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MediatR;
-using Microsoft.AspNetCore.Mvc; 
-using UrlShortener.Models;
+using Microsoft.AspNetCore.Mvc;
 using UrlShortener.Repository.Url.Request;
 
 namespace UrlShortener.Controllers
@@ -34,7 +29,8 @@ namespace UrlShortener.Controllers
         public async Task<IActionResult> Cadastrar (string url)
         {
             _insert.UrlLong = url;
-            ViewData["url"] = await _mediator.Send(_insert);
+            string urlCod = await _mediator.Send(_insert);
+            ViewData["url"] = $"https://{this.Request.Host}/url/{urlCod}";
             return View ("Result");
         }
 
