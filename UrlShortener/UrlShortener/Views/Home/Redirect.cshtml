@@ -1,0 +1,9 @@
+﻿@{
+    Layout = "_Layout2";
+    string url = ViewData["url"].ToString();
+    url = url.Contains("http") ? url : "http://" + url;
+}
+
+<script>
+    window.location.href = "@url";
+</script>

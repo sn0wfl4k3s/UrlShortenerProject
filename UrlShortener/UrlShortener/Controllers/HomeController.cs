@@ -40,13 +40,11 @@ namespace UrlShortener.Controllers
 
         [HttpGet]
         [Route("url/{cod}")]
-        public async Task<ActionResult> RedirectURL (string cod)
+        public async Task<IActionResult> RedirectURL (string cod)
         {
             _search.UrlShort = cod;
-            string url = await _mediator.Send(_search);
-            if (url.StartsWith("http://"))
-                return RedirectPermanent(url);
-            return RedirectPermanent("http://" + url);
+            ViewData["url"] = await _mediator.Send(_search);
+            return View ("Redirect");
         }
     }
 }
