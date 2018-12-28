@@ -30,6 +30,8 @@ namespace UrlShortener
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddMemoryCache();
+
             services.AddMediatR();
 
             services.AddScoped<InsertUrlRequest>();
