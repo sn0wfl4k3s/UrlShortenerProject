@@ -12,3 +12,22 @@ function loadApresentacao(n) {
 }
 
 window.open = loadApresentacao(0);
+
+
+// página de resultados ↓
+
+$(document).ready(function () {
+    $('[data-toggle="popover"]').popover();
+});
+
+var copyTextareaBtn = document.querySelector('.copiar');
+
+copyTextareaBtn.addEventListener('click', function (event) {
+    var copyTextarea = document.querySelector('.textarea');
+    copyTextarea.select();
+    try {
+        var successful = document.execCommand('copy');
+    } catch (err) {
+        alert('Opa, Não conseguimos copiar o texto, é possivel que o seu navegador não tenha suporte, tente usar Crtl+C.');
+    }
+});
